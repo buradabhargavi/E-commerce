@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 //import { Link, NavLink } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import CartIcon from "./CartIcon";
+import CartIcon from "./Cart/CartIcon";
+import ModalCart from "../UI/Modal";
 
 function NavigationBar() {
+  const [showCart, setShowCart] = useState(false);
   return (
     <React.Fragment>
       <Navbar expand="lg" bg="dark">
@@ -34,10 +36,24 @@ function NavigationBar() {
               </Nav.Link>
             </Nav>
 
-            <Button variant="primary" className="text-white">
+            <Button
+              variant="primary"
+              className="text-white"
+              onClick={() => {
+                setShowCart(true);
+              }}
+            >
               <CartIcon className="px-2" />
               <span className="px-2 fw-bold">Cart</span> <span>0</span>
             </Button>
+            {showCart && (
+              <ModalCart
+                show={showCart}
+                handleClose={() => {
+                  setShowCart(false);
+                }}
+              ></ModalCart>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
