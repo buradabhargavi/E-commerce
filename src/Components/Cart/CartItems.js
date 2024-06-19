@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartItem from "./CartItem";
+import CartContext from "../../Store/CartContext";
 
-const cartElements = [
+/* const cartElements = [
   {
     title: "Colors",
 
@@ -31,8 +32,12 @@ const cartElements = [
 
     quantity: 1,
   },
-];
+]; */
+
 function CartItems() {
+  const ctx = useContext(CartContext);
+  const cartElements = ctx.items;
+
   const TotalUpdatedAmount = cartElements.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
@@ -45,11 +50,12 @@ function CartItems() {
         })}
       </ul>
 
-      <div className="mt-3 fw-bold text-muted p-2 ms-4 border border-bottum border-info rounded d-flex justify-content-between">
-        Total Amount :-{" "}
+      <div className="fw-bold text-muted p-2 ms-4 d-flex align-items-end justify-content-end">
+        TOTAL :{" "}
         <span>
           {" "}
-          <strong>$</strong> {TotalUpdatedAmount}
+          <strong>$</strong>
+          {TotalUpdatedAmount}
         </span>
       </div>
     </>

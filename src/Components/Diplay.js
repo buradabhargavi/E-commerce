@@ -3,6 +3,7 @@ import Content from "./Content";
 import { Button } from "react-bootstrap";
 const productsArr = [
   {
+    id: 1,
     title: "Colors",
 
     price: 100,
@@ -11,6 +12,8 @@ const productsArr = [
   },
 
   {
+    id: 2,
+
     title: "Black and white Colors",
 
     price: 50,
@@ -19,6 +22,8 @@ const productsArr = [
   },
 
   {
+    id: 3,
+
     title: "Yellow and Black Colors",
 
     price: 70,
@@ -27,6 +32,8 @@ const productsArr = [
   },
 
   {
+    id: 4,
+
     title: "Blue Color",
 
     price: 100,
@@ -43,9 +50,10 @@ function Display() {
           {productsArr.map((item) => {
             return (
               <Content
-                url={item.imageUrl}
+                imageUrl={item.imageUrl}
                 title={item.title}
                 price={item.price}
+                id={item.id}
               />
             );
           })}

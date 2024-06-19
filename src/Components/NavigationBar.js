@@ -3,8 +3,12 @@ import React, { useState } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import CartIcon from "./Cart/CartIcon";
 import ModalCart from "../UI/Modal";
+import CartContext from "../Store/CartContext";
+import { useContext } from "react";
 
 function NavigationBar() {
+  const ctx = useContext(CartContext);
+  const cartSize = ctx.items.length;
   const [showCart, setShowCart] = useState(false);
   return (
     <React.Fragment>
@@ -44,7 +48,7 @@ function NavigationBar() {
               }}
             >
               <CartIcon className="px-2" />
-              <span className="px-2 fw-bold">Cart</span> <span>0</span>
+              <span className="px-2 fw-bold">Cart</span> <span>{cartSize}</span>
             </Button>
             {showCart && (
               <ModalCart
