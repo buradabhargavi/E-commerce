@@ -33,7 +33,7 @@ function NavigationBar() {
                 STORE
               </Nav.Link>
               <Nav.Link
-                href="#about"
+                href="About"
                 className="text-white p-3 text-decoration-none fs-10 "
               >
                 ABOUT
