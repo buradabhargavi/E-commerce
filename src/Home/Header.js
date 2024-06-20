@@ -5,34 +5,37 @@ function Header() {
   return (
     <React.Fragment>
       <div className="bg-secondary pt-2 pb-5 text-center">
-        <h1 className="display-1 text-white fw-bold">The Generic</h1>
-        <h4
-          className="bg-secondary text-white pt-2 pr-2"
+        <h1 className="display-1 text-white fw-bold mb-4">The Generic</h1>
+
+        <Button
+          variant="none"
+          className="bg-secondary text-white mb-4"
           style={{
-            border: "2px solid #17a2b8",
-            display: "inline-block",
-            padding: "0.5rem 1rem", // Padding inside the border
+            padding: "1rem 2rem",
+            border: "2px solid #56CCF2",
           }}
         >
           Get Our Latest Album
-        </h4>
-        <p>
+        </Button>
+
+        <div className="mb-4">
           <Button
-            variant="info"
+            variant="none"
             className="rounded-circle"
             style={{
-              width: "80px",
-              height: "80px",
-              fontSize: "2rem",
+              fontSize: "30px",
+              height: "70px",
+              width: "70px",
+              fontWeight: "200",
               textAlign: "center",
-              lineHeight: "30px",
-              border: "2px solid #17a2b8",
+              border: "2px solid #56CCF2",
+              color: "#56CCF2",
               backgroundColor: "transparent",
             }}
           >
             ►
           </Button>
-        </p>
+        </div>
       </div>
     </React.Fragment>
   );
