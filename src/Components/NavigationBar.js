@@ -21,13 +21,13 @@ function NavigationBar() {
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className=" m-auto gap-5">
               <Nav.Link
-                href="#home"
+                href="Home"
                 className="text-white p-3 text-decoration-none fs-10"
               >
                 HOME
               </Nav.Link>
               <Nav.Link
-                href="#store"
+                href="Store"
                 className="text-white p-3 text-decoration-none fs-10"
               >
                 STORE

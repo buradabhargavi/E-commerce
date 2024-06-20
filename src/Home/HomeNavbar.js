@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, NavLink } from "react-bootstrap";
 
-function AboutNav() {
+function HomeNavbar() {
   return (
     <React.Fragment>
       <Navbar expand="lg" bg="dark">
@@ -12,14 +12,14 @@ function AboutNav() {
           />
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className=" m-auto gap-5">
-              <Nav.Link
-                href="Home"
+              <NavLink
+                href="home"
                 className="text-white p-3 text-decoration-none fs-10"
               >
                 HOME
-              </Nav.Link>
+              </NavLink>
               <Nav.Link
-                href="Store"
+                href="store"
                 className="text-white p-3 text-decoration-none fs-10"
               >
                 STORE
@@ -37,4 +37,4 @@ function AboutNav() {
     </React.Fragment>
   );
 }
-export default AboutNav;
+export default HomeNavbar;

@@ -1,30 +1,22 @@
 import React from "react";
 import "../App.css";
-import Display from "../Components/Diplay";
-import Header from "../Components/Header";
-import NavigationBar from "../Components/NavigationBar";
-import Footer from "../Components/Footer";
-import CartProvider from "../Store/CartProvider";
+import Header from "../Home/Header";
+import HomeNavbar from "../Home/HomeNavbar";
+import HomeContent from "../Home/HomeContent";
+import HomeFooter from "../Home/HomeFooter";
 
-/* import "./App.css";
-import Display from "./Components/Diplay";
-import Header from "./Components/Header";
-import NavigationBar from "./Components/NavigationBar";
-import Footer from "./Components/Footer";
-import CartProvider from "./Store/CartProvider";
- */
 function Home() {
   return (
-    <CartProvider>
+    <>
       <div className="App">
-        <NavigationBar></NavigationBar>
+        <HomeNavbar></HomeNavbar>
         <Header></Header>
-        <Display></Display>
+        <HomeContent />
         <footer>
-          <Footer />
+          <HomeFooter />
         </footer>
       </div>
-    </CartProvider>
+    </>
   );
 }
 
