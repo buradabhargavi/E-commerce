@@ -29,8 +29,8 @@ function HomeContent() {
   return (
     <React.Fragment>
       <Container>
-        <h1>Tours</h1>
-        <ul className="my-5">
+        <h1 className="pt-3">Tours</h1>
+        <ul className="my-5 mx-5 px-5">
           {Movies.map((item) => (
             <div>
               <li

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar, NavLink } from "react-bootstrap";
 
-function HomeNavbar() {
+function ContactUsNav() {
   return (
     <React.Fragment>
       <Navbar expand="lg" bg="dark">
@@ -43,4 +43,5 @@ function HomeNavbar() {
     </React.Fragment>
   );
 }
-export default HomeNavbar;
+
+export default ContactUsNav;
