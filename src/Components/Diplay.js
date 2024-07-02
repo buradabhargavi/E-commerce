@@ -1,56 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Content from "./Content";
 import { Button } from "react-bootstrap";
-const productsArr = [
-  {
-    id: 1,
-    title: "Colors",
 
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-
-  {
-    id: 2,
-
-    title: "Black and white Colors",
-
-    price: 50,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-
-  {
-    id: 3,
-
-    title: "Yellow and Black Colors",
-
-    price: 70,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-
-  {
-    id: 4,
-
-    title: "Blue Color",
-
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-];
 function Display() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await fetch("https://fakestoreapi.com/products?limit=5");
+        if (!data.ok) {
+          throw new Error("Could not fetch data");
+        }
+        const response = await data.json();
+        setProducts(response);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+    loadData();
+  }, []);
+
   return (
     <React.Fragment>
-      <h2 className="text-center my-4">Music </h2>
+      <h2 className="text-center my-4">Music</h2>
       <div className="container my-4">
         <div className="row justify-content-center align-items-center ">
-          {productsArr.map((item) => {
+          {products.map((item) => {
+            console.log(item);
             return (
               <Content
-                imageUrl={item.imageUrl}
+                key={item.id}
+                imageUrl={item.image}
                 title={item.title}
                 price={item.price}
                 id={item.id}
@@ -65,4 +47,5 @@ function Display() {
     </React.Fragment>
   );
 }
+
 export default Display;
