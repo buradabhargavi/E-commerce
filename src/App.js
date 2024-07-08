@@ -1,5 +1,6 @@
-import React, { Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider, Routes } from "react-router-dom";
+
 import About from "./Pages/About";
 import Home from "./Pages/Home";
 import Store from "./Pages/Store";
@@ -10,43 +11,48 @@ import AuthProtect from "./Pages/AuthRouter/AuthProtect";
 import SignIn from "./LoginPages/Signin";
 import SignUp from "./LoginPages/SignUp";
 import ForgotPassword from "./LoginPages/ForgotPassword";
+const Storepage = lazy(() => import("./Pages/StoreDisplay/Storepage"));
+
+const Loader = () => <p>Loading...</p>;
 
 const router = createBrowserRouter([
-  { path: "About", element: <About /> },
+  { path: "/about", element: <About /> },
   { path: "/", element: <Home /> },
-  { path: "Home", element: <Home /> },
-  { path: "Store", element: <Store /> },
-  { path: "Store/:id", element: <ProductDetails /> },
-  { path: "contact", element: <ContactUs /> },
+  { path: "/home", element: <Home /> },
+  { path: "/store", element: <Store /> },
+  { path: "/store/:id", element: <ProductDetails /> },
+  { path: "/contact", element: <ContactUs /> },
   {
     element: <AuthLogin />,
     children: [
-      { path: "signin", element: <SignIn /> },
-      { path: "signup", element: <SignUp /> },
+      { path: "/signin", element: <SignIn /> },
+      { path: "/signup", element: <SignUp /> },
     ],
   },
-  { path: "forgotPassword", element: <ForgotPassword /> },
+  { path: "/forgotPassword", element: <ForgotPassword /> },
   {
     element: <AuthProtect />,
     children: [
       {
-        path: "store",
+        path: "/store",
         id: "product-details",
         children: [
           {
             index: true,
             element: (
-              <Suspense fallback={<p>Loading...</p>}>
-                <Store />
+              <Suspense fallback={<Loader />}>
+                <Storepage />
               </Suspense>
             ),
             loader: () =>
-              import("./Pages/Store").then((module) => module.Loader()),
+              import("./Pages/StoreDisplay/Storepage").then((module) =>
+                module.Loader()
+              ),
           },
           {
             path: ":id",
             element: (
-              <Suspense fallback={<p>Loading...</p>}>
+              <Suspense fallback={<Loader />}>
                 <ProductDetails />
               </Suspense>
             ),
@@ -59,9 +65,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <RouterProvider router={router}></RouterProvider>
-    </>
+    <RouterProvider router={router}>
+      <Routes />
+    </RouterProvider>
   );
 }
 

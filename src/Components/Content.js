@@ -4,7 +4,6 @@ import CartContext from "../Store/CartContext";
 
 const Content = (props) => {
   const ctx = useContext(CartContext);
-  // console.log(ctx.AddItem);
   return (
     <div className="col-sm-1 col-lg-4 m-4">
       <Card className="border-0">
