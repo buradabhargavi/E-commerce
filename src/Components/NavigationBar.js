@@ -52,6 +52,14 @@ function NavigationBar() {
             {token ? (
               <React.Fragment>
                 <Button
+                  as={Link}
+                  to="/ForgotPassword"
+                  variant="primary"
+                  className="text-white"
+                >
+                  profile
+                </Button>
+                <Button
                   variant="primary"
                   className="text-white"
                   onClick={() => setShowCart(true)}

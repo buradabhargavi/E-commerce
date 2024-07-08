@@ -28,9 +28,9 @@ const SignIn = () => {
       const data = await response;
       if (data.ok) {
         const authData = await data.json();
-        // console.log(authData.idToken);
+        console.log(authData);
         console.log(authContext.login);
-        authContext.login("1234");
+        authContext.login(authData);
       } else {
         let errorMessage = "Authentication failed";
         throw new Error(errorMessage);
