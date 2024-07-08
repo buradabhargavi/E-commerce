@@ -5,12 +5,14 @@ import App from "./App";
 import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthContextProvider } from "./Store/AuthContent/Auth-Context";
+import AutoLogoutHOC from "./AutoLogout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
     <AuthContextProvider>
       <App />
+      <AutoLogoutHOC />
     </AuthContextProvider>
   </React.Fragment>
 );

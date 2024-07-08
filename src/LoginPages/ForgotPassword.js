@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const enteredEmail = emailRef.current.value;
+    //const enteredEmail = emailRef.current.value;
     const enteredNewPassword = newPasswordRef.current.value;
     const enteredConfirmPassword = confirmPasswordRef.current.value;
 
